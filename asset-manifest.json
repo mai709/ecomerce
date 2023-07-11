@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/ecomerce/static/css/main.c5247b16.css",
+    "main.js": "/ecomerce/static/js/main.4888301e.js",
+    "static/js/787.c4356498.chunk.js": "/ecomerce/static/js/787.c4356498.chunk.js",
+    "static/media/fa-solid-900.ttf": "/ecomerce/static/media/fa-solid-900.4a2cd718d7031b732e76.ttf",
+    "static/media/slider-image-1.jpeg": "/ecomerce/static/media/slider-image-1.3c3940ee0f1c3b17ff9a.jpeg",
+    "static/media/fa-brands-400.ttf": "/ecomerce/static/media/fa-brands-400.150de8eaa454d669c405.ttf",
+    "static/media/slider-image-2.jpeg": "/ecomerce/static/media/slider-image-2.e510b0de8a4d96a1d5ad.jpeg",
+    "static/media/fa-solid-900.woff2": "/ecomerce/static/media/fa-solid-900.bb975c966c37455a1bc3.woff2",
+    "static/media/fa-brands-400.woff2": "/ecomerce/static/media/fa-brands-400.e033a13ee751afc1860c.woff2",
+    "static/media/fa-regular-400.ttf": "/ecomerce/static/media/fa-regular-400.d87474231f4192884802.ttf",
+    "static/media/fa-regular-400.woff2": "/ecomerce/static/media/fa-regular-400.3223dc79c1adee56370b.woff2",
+    "static/media/freshcart-logo.svg": "/ecomerce/static/media/freshcart-logo.53f7a424c3aedc30a0fb46dc2278137c.svg",
+    "static/media/fa-v4compatibility.ttf": "/ecomerce/static/media/fa-v4compatibility.0e3a648be390bd8cb094.ttf",
+    "static/media/fa-v4compatibility.woff2": "/ecomerce/static/media/fa-v4compatibility.68577e40f3e70067b5da.woff2",
+    "static/media/slick.svg": "/ecomerce/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/ecomerce/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/ecomerce/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/ecomerce/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/ecomerce/index.html",
+    "main.c5247b16.css.map": "/ecomerce/static/css/main.c5247b16.css.map",
+    "main.4888301e.js.map": "/ecomerce/static/js/main.4888301e.js.map",
+    "787.c4356498.chunk.js.map": "/ecomerce/static/js/787.c4356498.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c5247b16.css",
+    "static/js/main.4888301e.js"
+  ]
+}
