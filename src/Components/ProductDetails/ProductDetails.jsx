@@ -8,7 +8,6 @@ export default function ProductDetails() {
     async function getDetails(id){
         let {data } = await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
         setProductDetails(data.data)
-        console.log(data.data)
     }
     useEffect(()=>{
         getDetails(params.id)

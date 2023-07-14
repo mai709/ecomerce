@@ -45,7 +45,9 @@ a:hover {
   transform: translateY(0%);
 
 }
-
+.border-main{
+  border: 1px solid var(--main-color) !important;
+}
 .font-sm {
   font-size: 13px;
 }

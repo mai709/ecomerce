@@ -2,24 +2,40 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { cartcontext } from '../Context/Context'
+import toast from 'react-hot-toast';
 
 export default function FeaturedProduct() {
-    let {changeCounter} = useContext(cartcontext)
+    let {addToCart} = useContext(cartcontext)
     const [products, setProducts] = useState([])
     async function productsApi(){
         let {data} = await axios.get(`https://ecommerce.routemisr.com/api/v1/products`)
         setProducts(data.data)
+    }
+    async function addProudctToCart(id){
+        let res = await addToCart(id)
+        const myPromise = addToCart();
+
+        toast.promise(myPromise, {
+        loading: 'Loading',
+        success: res.data.message,
+        error: 'Error ,Please Try again',
+        });
+        // if(res.data.status === 'success'){
+        //     toast.success(res.data.message , {duration: 2000})
+        // }
+        // else{
+        //     toast.error(`Error Please Try again` , {duration : 2000})
+        // }
     }
     useEffect(()=>{
         productsApi()
     },[])
     return <>
         <div className='row py-5'>
-            <button onClick={changeCounter} className='btn btn-info'>+</button>
             {products.map((product)=>
                 <div key={product._id} className='col-md-2'>
-                    <Link className='text-decoration-none' to={`productDetails/${product.id}`}>
-                        <div className='product px-2 py-3 cursor-pointer'>
+                    <div className='product px-2 py-3 cursor-pointer'>
+                        <Link className='text-decoration-none' to={`productDetails/${product.id}`}>
                             <img className='w-100' src={product.imageCover} alt="" />
                             <span className='text-main fw-bold font-sm'>{product.category.name}</span>
                             <h3 className='h6 fw-bolder text-black'>{product.title.split(' ').slice(0,2).join(' ')}</h3>
@@ -30,10 +46,10 @@ export default function FeaturedProduct() {
                                 {product.ratingsAverage}
                                 </span>
                             </div>
-                            <button className='btn bg-main text-white w-100 mt-3'>Add to cart</button>
-                        </div>
-                    </Link>
+                        </Link>
+                        <button onClick={()=>addProudctToCart(product._id)} className='btn bg-main text-white w-100 mt-3'>Add to cart</button>
                     </div>
+                </div>
             )}
         </div>
     </>

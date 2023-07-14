@@ -4,7 +4,6 @@ import logo from '../../images/freshcart-logo.svg'
 import { cartcontext } from '../Context/Context'
 
 export default function Navbar({userData ,Logout}) {
-    let {counter} = useContext(cartcontext)
     return <>
         <nav className="navbar navbar-expand-sm navbar-light bg-light position-sticky top-0">
             <div className="container">
@@ -18,7 +17,7 @@ export default function Navbar({userData ,Logout}) {
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     {userData?<ul className="navbar-nav me-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link active" to='/' aria-current="page">Home {counter}<span className="visually-hidden">(current)</span></Link>
+                            <Link className="nav-link active" to='/' aria-current="page">Home <span className="visually-hidden">(current)</span></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={`/cart`}>Cart</Link>

@@ -1,4 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
@@ -14,6 +15,7 @@ import NonFound from "./Components/NonFound/NonFound";
 import jwtDecode from "jwt-decode";
 import ProdectedRoute from "./Components/ProdectedRoute/ProdectedRoute";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
+import CheckOut from "./Components/CheckOut/CheckOut";
 import { CartContextProvider } from "./Components/Context/Context";
 
 function App() {
@@ -42,6 +44,14 @@ function App() {
           element: (
             <ProdectedRoute>
               <Cart />
+            </ProdectedRoute>
+          ),
+        },
+        {
+          path: "checkout",
+          element: (
+            <ProdectedRoute>
+              <CheckOut />
             </ProdectedRoute>
           ),
         },
@@ -97,6 +107,7 @@ function App() {
   return (
     <>
       <CartContextProvider>
+        <Toaster />
         <RouterProvider router={routers}></RouterProvider>
       </CartContextProvider>
     </>
