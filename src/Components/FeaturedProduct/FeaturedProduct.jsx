@@ -5,7 +5,7 @@ import { cartcontext } from '../Context/Context'
 import toast from 'react-hot-toast';
 
 export default function FeaturedProduct() {
-    let {addToCart} = useContext(cartcontext)
+    let {addToCart ,setnumOfCartItems} = useContext(cartcontext)
     const [products, setProducts] = useState([])
     async function productsApi(){
         let {data} = await axios.get(`https://ecommerce.routemisr.com/api/v1/products`)
@@ -19,7 +19,8 @@ export default function FeaturedProduct() {
         loading: 'Loading',
         success: res.data.message,
         error: 'Error ,Please Try again',
-        });
+    });
+    setnumOfCartItems(res.data.numOfCartItems);
         // if(res.data.status === 'success'){
         //     toast.success(res.data.message , {duration: 2000})
         // }

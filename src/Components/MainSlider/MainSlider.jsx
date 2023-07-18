@@ -10,7 +10,8 @@ export default function MainSlider() {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            
         };
     return <>
         <div className='row my-3 mainSlid'>
@@ -21,7 +22,7 @@ export default function MainSlider() {
                     <img className='w-100' src={img2} alt="img1" />
                 </Slider>
             </div>
-            <div className='col-md-4 p-0'>
+            <div className='col-md-4 p-0 d-none d-lg-block'>
                 <img className='w-100' src={img1} alt="img1" />
                 <img className='w-100' src={img2} alt="img2" />
             </div>

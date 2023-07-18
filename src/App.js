@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Toaster } from "react-hot-toast";
+import { Offline, Online } from "react-detect-offline";
+import toast, { Toaster } from "react-hot-toast";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
@@ -107,6 +108,9 @@ function App() {
   return (
     <>
       <CartContextProvider>
+        <Offline>
+          <div className="offline-div">Only shown offline (surprise!)</div>
+        </Offline>
         <Toaster />
         <RouterProvider router={routers}></RouterProvider>
       </CartContextProvider>

@@ -1,9 +1,22 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export let cartcontext = createContext();
 
 export function CartContextProvider(props) {
+  const [cartId, setcartId] = useState(null);
+  const [numOfCartItems, setnumOfCartItems] = useState(0);
+  async function getCart() {
+    let response = await getLoggedUserCart();
+    if (response.status === 200) {
+      setcartId(response.data.data._id);
+      setnumOfCartItems(response.data.numOfCartItems);
+    }
+  }
+
+  useEffect(() => {
+    getCart();
+  }, []);
   let headers = {
     token: localStorage.getItem("userToken"),
   };
@@ -52,6 +65,21 @@ export function CartContextProvider(props) {
       headers,
     });
   }
+  // 642e5663fc6ec80008fc40bf
+  function onlinePayment(cartId, shappingart) {
+    return axios
+      .post(
+        `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:3000`,
+        {
+          shappingart,
+        },
+        {
+          headers,
+        }
+      )
+      .then((res) => res)
+      .catch((err) => err);
+  }
   return (
     <cartcontext.Provider
       value={{
@@ -60,6 +88,10 @@ export function CartContextProvider(props) {
         deleteItem,
         updateProduct,
         deleteAllProuducts,
+        onlinePayment,
+        setnumOfCartItems,
+        cartId,
+        numOfCartItems,
       }}
     >
       {props.children}

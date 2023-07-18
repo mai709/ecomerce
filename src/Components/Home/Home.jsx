@@ -8,6 +8,5 @@ export default function Home() {
         <MainSlider />
         <Categories/>
         <FeaturedProduct />
-        <h1>Home</h1>
     </>
 }

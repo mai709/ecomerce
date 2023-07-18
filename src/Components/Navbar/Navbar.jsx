@@ -4,9 +4,10 @@ import logo from '../../images/freshcart-logo.svg'
 import { cartcontext } from '../Context/Context'
 
 export default function Navbar({userData ,Logout}) {
+    let {numOfCartItems} = useContext(cartcontext)
     return <>
         <nav className="navbar navbar-expand-sm navbar-light bg-light position-sticky top-0">
-            <div className="container">
+            <div className="container-xl">
                 <Link className="navbar-brand" to={'/'}>
                     <img src={logo} alt="logo" />
                 </Link>
@@ -19,9 +20,7 @@ export default function Navbar({userData ,Logout}) {
                         <li className="nav-item">
                             <Link className="nav-link active" to='/' aria-current="page">Home <span className="visually-hidden">(current)</span></Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to={`/cart`}>Cart</Link>
-                        </li>
+                        
                         <li className="nav-item">
                             <Link className="nav-link" to='/products'>Products</Link>
                         </li>
@@ -34,7 +33,7 @@ export default function Navbar({userData ,Logout}) {
                     </ul>:null}
                     
                     <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
-                        <li className="nav-item">
+                        <li className="nav-item  d-none d-xl-block">
                             <a className="nav-link text-capitalize" href="#">
                                 <i className='fab mx-2 fa-facebook'></i>
                                 <i className='fab mx-2 fa-twitter'></i>
@@ -52,9 +51,16 @@ export default function Navbar({userData ,Logout}) {
                         <li className="nav-item">
                             <Link className="nav-link text-capitalize" to='/register'>signup</Link>
                         </li>
-                        </>:<li className="nav-item">
-                            <span onClick={Logout} className="nav-link text-capitalize ">logout</span>
-                        </li>}
+                        </>:
+                        <>
+                            <li className="nav-item">
+                                <Link className="nav-link position-relative" to={`/cart`}><i className="fa-solid fa-cart-shopping"></i> : <span className='badge bg-main  position-absolute top-0 end-0'>{numOfCartItems}</span></Link>
+                            </li>
+                            <li className="nav-item">
+                                <span onClick={Logout} className="nav-link text-capitalize ">logout</span>
+                            </li>
+                        </>
+                        }
                         
                     </ul>
                 </div>

@@ -78,7 +78,7 @@ export default function Cart() {
                     <Link className='btn bg-main text-white text-capitalize mt-3' to={'/checkout'}>checkout</Link>
                 </div>
             </div>
-        </>:<div><i className='fa-spin fa-spinner'></i></div>
+        </>:<div className='d-flex justify-content-center align-items-center vh-75'><div><i className='fs-1 fas fa-spinner fa-spin'></i></div></div>
     }
     </>
 }
